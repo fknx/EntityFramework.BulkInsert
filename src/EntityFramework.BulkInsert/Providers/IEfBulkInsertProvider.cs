@@ -42,8 +42,6 @@ namespace EntityFramework.BulkInsert.Providers
         /// <param name="providerInvariantName"></param>
         void SetProviderIdentifier(string providerInvariantName);
 
-#if NET45
-
         /// <summary>
         /// 
         /// </summary>
@@ -77,8 +75,6 @@ namespace EntityFramework.BulkInsert.Providers
         /// <returns></returns>
         object GetSqlGeometry(string wkt, int srid);
       
-#endif
-
         /// <summary>
         /// Current DbContext.
         /// </summary>

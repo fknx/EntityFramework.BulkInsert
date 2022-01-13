@@ -1,16 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Data.SqlClient;
-using EntityFramework.BulkInsert.Helpers;
-
-#if NET45
-#if EF6
 using System.Data.Entity.Spatial;
-#endif
-#if EF5
-using System.Data.Spatial;
-#endif
+using System.Data.SqlClient;
 using System.Threading.Tasks;
-#endif
+using EntityFramework.BulkInsert.Helpers;
 
 namespace EntityFramework.BulkInsert.Providers
 {
@@ -38,9 +30,7 @@ namespace EntityFramework.BulkInsert.Providers
                     sqlBulkCopy.BulkCopyTimeout = Options.TimeOut;
                     sqlBulkCopy.BatchSize = Options.BatchSize;
                     sqlBulkCopy.DestinationTableName = string.Format("[{0}].[{1}]", reader.SchemaName, reader.TableName);
-#if !NET40
                     sqlBulkCopy.EnableStreaming = Options.EnableStreaming;
-#endif
 
                     sqlBulkCopy.NotifyAfter = Options.NotifyAfter;
                     if (Options.Callback != null)
@@ -65,8 +55,6 @@ namespace EntityFramework.BulkInsert.Providers
             }
         }
 
-#if NET45
-
         /// <summary>
         /// Get sql grography object from well known text
         /// </summary>
@@ -75,7 +63,6 @@ namespace EntityFramework.BulkInsert.Providers
         /// <returns></returns>
         public override object GetSqlGeography(string wkt, int srid)
         {
-#if EF6
             var geo = new DbGeographyWellKnownValue
             {
                 WellKnownText = wkt,
@@ -83,10 +70,6 @@ namespace EntityFramework.BulkInsert.Providers
             };
 
             return DbSpatialServices.Default.CreateProviderValue(geo);
-#endif
-#if EF5
-            return DbGeography.FromText(wkt, srid);
-#endif
         }
 
         /// <summary>
@@ -97,7 +80,6 @@ namespace EntityFramework.BulkInsert.Providers
         /// <returns></returns>
         public override object GetSqlGeometry(string wkt, int srid)
         {
-#if EF6          
             var geo = new DbGeometryWellKnownValue
             {
                 WellKnownText = wkt,
@@ -105,10 +87,6 @@ namespace EntityFramework.BulkInsert.Providers
             };
 
             return DbSpatialServices.Default.CreateProviderValue(geo);
-#endif
-#if EF5
-            return DbGeometry.FromText(wkt, srid);
-#endif
         }
 
         /// <summary>
@@ -153,8 +131,6 @@ namespace EntityFramework.BulkInsert.Providers
                 }
             }
         }
-
-#endif
 
         /// <summary>
         /// Create new sql connection

@@ -3,13 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using EntityFramework.BulkInsert.Exceptions;
-#if NET45
-#if EF6
 using System.Data.Entity.Spatial;
-#else
-using System.Data.Spatial;
-#endif
-#endif
 
 using System.Linq;
 using System.Linq.Expressions;
@@ -189,7 +183,6 @@ namespace EntityFramework.BulkInsert.Helpers
                 try
                 {
                     value = currentEntityTypeSelectors[i](enumerator.Current);
-#if NET45
                     if (value is DbGeography dbgeo)
                     {
                         return Provider.GetSqlGeography(dbgeo.WellKnownValue.WellKnownText, dbgeo.CoordinateSystemId);
@@ -199,7 +192,6 @@ namespace EntityFramework.BulkInsert.Helpers
                     {
                         return Provider.GetSqlGeometry(dbgeom.WellKnownValue.WellKnownText, dbgeom.CoordinateSystemId);
                     }
-#endif
                 }
                 catch (KeyNotFoundException)
                 {

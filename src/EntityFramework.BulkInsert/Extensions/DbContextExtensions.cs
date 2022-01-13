@@ -1,6 +1,4 @@
-﻿#if EF6
-
-using System;
+﻿using System;
 using System.Data.Entity;
 using System.Linq.Expressions;
 
@@ -46,4 +44,3 @@ namespace EntityFramework.BulkInsert.Extensions
         }
     }
 }
-#endif
