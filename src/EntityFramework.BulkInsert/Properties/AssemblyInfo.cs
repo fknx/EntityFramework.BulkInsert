@@ -12,6 +12,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyProduct("EntityFramework.BulkInsert")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
+[assembly: AssemblyVersion("6.0.3.10")]
+[assembly: AssemblyFileVersion("6.0.3.10")]
 [assembly: InternalsVisibleTo("EntityFramework.BulkInsert.SqlServerCe")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 

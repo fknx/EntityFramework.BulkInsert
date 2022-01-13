@@ -8,7 +8,4 @@
     <ItemGroup>
         <PackageReference Include="EntityFramework" Version="6.4.4" />
     </ItemGroup>
-    <ItemGroup>
-      <ProjectReference Include="..\EntityFramework.MappingAPI\EntityFramework.MappingAPI.csproj" />
-    </ItemGroup>
 </Project>

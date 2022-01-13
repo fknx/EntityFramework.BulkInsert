@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
 using EntityFramework.BulkInsert.Exceptions;
 using System.Data.Entity.Spatial;
 
 using System.Linq;
 using System.Linq.Expressions;
-using EntityFramework.BulkInsert.Extensions;
 using EntityFramework.BulkInsert.Providers;
 using EntityFramework.MappingAPI;
 using EntityFramework.MappingAPI.Extensions;

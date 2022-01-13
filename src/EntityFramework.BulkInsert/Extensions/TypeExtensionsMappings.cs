@@ -6,11 +6,11 @@ using System.Reflection;
 
 namespace EntityFramework.MappingAPI.Extensions
 {
-    internal static class TypeExtensions
+    internal static class TypeExtensionsMappings
     {
         private static readonly ConcurrentDictionary<Type, ConcurrentDictionary<string, object>> typeFieldAccessorLookup;
 
-        static TypeExtensions()
+        static TypeExtensionsMappings()
         {
             typeFieldAccessorLookup = new ConcurrentDictionary<Type, ConcurrentDictionary<string, object>>();
         }

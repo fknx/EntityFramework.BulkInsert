@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Linq.Expressions;
+using EntityFramework.MappingAPI.Extensions;
 
 namespace EntityFramework.BulkInsert.Extensions
 {
